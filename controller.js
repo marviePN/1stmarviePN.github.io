@@ -27,6 +27,24 @@ btnConnect.addEventListener('click',function(e){
 })
 
 
+
+
+btnDisconnect.addEventListener('click',function(e){
+  e.preventDefault();
+  console.log("Disconnecting ..");
+  // var broker = document.getElementById("broker");
+  var disConnBroker = document.getElementById("status");
+  // client = mqtt.connect("ws://broker.hivemq.com:8000/mqtt")
+  client = mqtt.connect("wss://test.mosquitto.org:8081/mqtt")
+  client.on("connect", function(){
+      disConnBroker.value = "Successfully Disconnected!"
+  })
+
+
+
+})
+
+
 btnPublish.addEventListener('click',function(e){
   e.preventDefault();
   console.log('Published')
